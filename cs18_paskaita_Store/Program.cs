@@ -1,4 +1,5 @@
-﻿using System;
+﻿using cs18_paskaita_Store.Functionality;
+using System;
 
 namespace cs18_paskaita_Store
 {
@@ -41,7 +42,8 @@ namespace cs18_paskaita_Store
             // (!) Pvz.: Programai prasidėjus sukuriamos visos repozitorijos pradedant saldainių repozitorija,
             //     ji savyje išsikviečia failų skaitymo servisą, kuris perskaito atitinkamą failą(pvz.: candies.txt)
             //     ir repozitorijos klasė saldainius gautus iš failo susideda į savo sąrašą, kuris yra bendras tarp visų
-            //     saldainių repozitorijos klasių***.Tą patį padaro ir Mėsos, Daržovių ir Gėrimų repozitorijos.
+            //     saldainių repozitorijos klasių.
+            //     Tą patį padaro ir Mėsos, Daržovių ir Gėrimų repozitorijos.
             //
             // (!) Programos veikimo metu yra operuojama su sąrašais repozitorijose, ne sąrašais failuose.
             #endregion
@@ -80,6 +82,8 @@ namespace cs18_paskaita_Store
             //    ir atliekama jos validacija, gal apsimoka ją kažkaip pernaudot ?)
             // 5. Nepaminėta, bet xUnit'ai
             #endregion
+            var handler = new CSV_Handler();
+            handler.TransferToCSV("Drinkables");
         }
     }
 }
