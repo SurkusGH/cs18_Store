@@ -13,7 +13,7 @@ namespace cs18_paskaita_Store
         public float Barcode { get; set; }
         public float Weight { get; set; }
 
-        public Item(decimal price, float barcode, float weight)
+        public Item(decimal price = 0m, float barcode = 0f, float weight = 0f)
         {
             Price = price;
             Barcode = barcode;

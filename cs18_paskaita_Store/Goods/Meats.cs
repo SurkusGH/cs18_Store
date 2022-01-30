@@ -12,7 +12,7 @@ namespace cs18_paskaita_Store.Goods
         //			                - Mėsa(baltymai)
         public float Proteins { get; set; }
 
-        public Meats(float proteins, decimal price, float barcode, float weight) : base(price, barcode, weight)
+        public Meats(float proteins = 0f, decimal price = 0m, float barcode = 0f, float weight = 0f) : base(price, barcode, weight)
         {
             Proteins = proteins;
         }

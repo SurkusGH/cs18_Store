@@ -1,4 +1,5 @@
 ﻿using cs18_paskaita_Store.Functionality;
+using cs18_paskaita_Store.Goods;
 using System;
 
 namespace cs18_paskaita_Store
@@ -82,8 +83,8 @@ namespace cs18_paskaita_Store
             //    ir atliekama jos validacija, gal apsimoka ją kažkaip pernaudot ?)
             // 5. Nepaminėta, bet xUnit'ai
             #endregion
-            var handler = new CSV_Handler();
-            handler.TransferToCSV("Drinkables");
+
+            StoreFrontMenu.Menu();
         }
     }
 }
