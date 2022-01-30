@@ -27,19 +27,5 @@ namespace cs18_paskaita_Store
             var handler = new CSV_Handler();
             handler.WriteMeatsDataToCSV("Meats", meat);
         }
-        public void PrintProductData()
-        {
-            var meatsRepository = new MeatsRepository();
-            var itemIdentifier = new BarcodeAuthenticator();
-            foreach (var item in meatsRepository.LoadMeatsCSVData())
-            {
-                Console.WriteLine($"Produktas: {itemIdentifier.ItemIdentifier(item.Barcode)}");
-                Console.WriteLine($"     turi: {item.Proteins} baltymų");
-                Console.WriteLine($" kainuoja: {item.Price} Eur");
-                Console.WriteLine($" barkodas: {item.Barcode}");
-                Console.WriteLine($"   svoris: {item.Weight} g");
-                Console.WriteLine();
-            }
-        }
     }
 }

@@ -26,19 +26,5 @@ namespace cs18_paskaita_Store
             var handler = new CSV_Handler();
             handler.WriteDrinkablesDataToCSV("Drinkables", drinkables);
         }
-        public void PrintProductData()
-        {
-            var drinkablesRepository = new DrinkablesRepository();
-            var itemIdentifier = new BarcodeAuthenticator();
-            foreach (var item in drinkablesRepository.LoadDrinkablesCSVData())
-            {
-                Console.WriteLine($"Produktas: {itemIdentifier.ItemIdentifier(item.Barcode)}");
-                Console.WriteLine($"      yra: {item.Volume} ml taros");
-                Console.WriteLine($" kainuoja: {item.Price} Eur");
-                Console.WriteLine($" barkodas: {item.Barcode}");
-                Console.WriteLine($"   svoris: {item.Weight} g");
-                Console.WriteLine();
-            }
-        }
     }
 }
