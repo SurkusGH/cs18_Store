@@ -8,7 +8,7 @@ namespace cs18_paskaita_Store.Functionality
 {
     public class DataPrinting
     {
-
+        #region DETAILED-CUI
         public static void PrintProductData_Sweets()
         {
             var sweetsRepository = new SweetsRepository();
@@ -72,7 +72,9 @@ namespace cs18_paskaita_Store.Functionality
             PrintProductData_Greens();
             PrintProductData_Drinkables();
         }
+        #endregion
 
+        #region MINI-CONSOLE-UI
         public static void PrintProductData_Sweets_Mini()
         {
             var sweetsRepository = new SweetsRepository();
@@ -85,7 +87,6 @@ namespace cs18_paskaita_Store.Functionality
             Console.WriteLine($"                       [4] Gėrimai                      [4] {itemIdentifier.ItemIdentifier(sweetsRepository.SweetsList[3].Barcode)}");
             Console.WriteLine($"                       [5] Visas katalogas");
             Console.WriteLine($"                       [6] Grįžti į pagrindinį meniu");
-            //CartAndChequeSystem.AddSweetsToCartList(input);
         }
         public static void PrintProductData_Meats_Mini()
         {
@@ -99,7 +100,6 @@ namespace cs18_paskaita_Store.Functionality
             Console.WriteLine($"                       [4] Gėrimai                      [4] {itemIdentifier.ItemIdentifier(meatsRepository.MeatsList[3].Barcode)}");
             Console.WriteLine($"                       [5] Visas katalogas");
             Console.WriteLine($"                       [6] Grįžti į pagrindinį meniu");
-            //CartAndChequeSystem.AddSweetsToCartList(input);
         }
         public static void PrintProductData_Greens_Mini()
         {
@@ -127,7 +127,7 @@ namespace cs18_paskaita_Store.Functionality
             Console.WriteLine($"                       [4] Gėrimai                   -> [4] {itemIdentifier.ItemIdentifier(drinkablessRepository.DrinkablesList[3].Barcode)}");
             Console.WriteLine($"                       [5] Visas katalogas");
             Console.WriteLine($"                       [6] Grįžti į pagrindinį meniu");
-            //CartAndChequeSystem.AddSweetsToCartList(input);
+            #endregion
         }
     }
 }

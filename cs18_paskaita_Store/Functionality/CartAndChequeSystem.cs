@@ -74,18 +74,7 @@ namespace cs18_paskaita_Store.Functionality
             {
                 Console.WriteLine(item);
             }
-            Console.WriteLine($"Mokėtina suma: {cartTotal}");
+            Console.WriteLine($"Mokėtina suma: {cartTotal} Eur");
         }
     }
 }
-//public void RemoveTVShowByNameService(List<TV_Show> list, string input)
-//{
-//    foreach (var item in list)
-//    {
-//        if (item.Title == input)
-//        {
-//            list.Remove(item);
-//            break;
-//        }
-//    }
-//}
