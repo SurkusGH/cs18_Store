@@ -132,12 +132,15 @@ namespace cs18_paskaita_Store.Functionality
         #region OTHER PRINTING
         public static void PrintCart()
         {
-            Console.WriteLine("Krepšelis:");
-
-            int index = 1;
-            foreach (var item in CartAndChequeSystem.cartList)
+            if (CartAndChequeSystem.cartList.Count > 0)
             {
-                Console.WriteLine($"   Prekė #{index++}: {item}");
+                Console.WriteLine();
+                Console.WriteLine("Krepšelis:");
+                int index = 1;
+                foreach (var item in CartAndChequeSystem.cartList)
+                {
+                    Console.WriteLine($"   Prekė #{index++}: {item}");
+                }
             }
         }
 

@@ -8,11 +8,15 @@ namespace cs18_paskaita_Store.Functionality
 {
     public class CartAndChequeSystem
     {
-        
+        #region CLASS GLOBALS
         public static List<string> cartList = new List<string>();
         public static string Cheque;
         public static decimal cartTotal = 0m;
         public static decimal wallet = 0m;
+        public static List<decimal> moneyOperations = new List<decimal>();
+        #endregion
+
+        #region ADD TO CART
         static public void AddSweetsToCartList(int index)
         {
             var sweetsRepository = new SweetsRepository();
@@ -26,6 +30,7 @@ namespace cs18_paskaita_Store.Functionality
                 }
             }
             cartTotal += sweetsRepository.LoadSweetsCSVData()[index].Price;
+            moneyOperations.Add(sweetsRepository.LoadSweetsCSVData()[index].Price);
         }
         static public void AddMeatsToCartList(int index)
         {
@@ -40,6 +45,7 @@ namespace cs18_paskaita_Store.Functionality
                 }
             }
             cartTotal += meatsRepository.LoadMeatsCSVData()[index].Price;
+            moneyOperations.Add(meatsRepository.LoadMeatsCSVData()[index].Price);
         }
         static public void AddGreensToCartList(int index)
         {
@@ -54,6 +60,7 @@ namespace cs18_paskaita_Store.Functionality
                 }
             }
             cartTotal += greensRepository.LoadGreensCSVData()[index].Price;
+            moneyOperations.Add(greensRepository.LoadGreensCSVData()[index].Price);
         }
         static public void AddDrinkablesToCartList(int index)
         {
@@ -68,13 +75,17 @@ namespace cs18_paskaita_Store.Functionality
                 }
             }
             cartTotal += drinkablesRepository.LoadDrinkablesCSVData()[index].Price;
+            moneyOperations.Add(drinkablesRepository.LoadDrinkablesCSVData()[index].Price);
         }
+        #endregion
 
+        #region OTHER FUNCTIONS
         public static void ShowBalance()
         {
             Console.WriteLine();
             Console.WriteLine($"    Piniginė: {wallet} Eur");
             Console.WriteLine($"   Krepšelis: {cartTotal} Eur");
+            Console.WriteLine();
             CheckBalance();
         }
 
@@ -98,6 +109,20 @@ namespace cs18_paskaita_Store.Functionality
             if (!int.TryParse(Console.ReadLine(), out int indexToRemove)) { Console.WriteLine("(!) Neteisinga įvestis"); }
 
             cartList.RemoveAt(indexToRemove-1);
+            cartTotal -= moneyOperations[indexToRemove - 1];
+            moneyOperations.RemoveAt(indexToRemove-1);
+        }
+
+        public static void CheckWallet()
+        {
+            if (wallet-cartTotal < 0)
+            {
+                Console.WriteLine($"(!) TRŪKSTA {(wallet - cartTotal) * -1} Eur");
+                Console.WriteLine($"    GRĮŽTATE -> MENiU:  ");
+                Console.WriteLine($"(?) padidinkite piniginę");
+                Console.WriteLine($"(?) arba šalinkite prekes");
+                StoreFrontMenu.Menu();
+            }
         }
 
         public static void ConstructChequeString()
@@ -114,5 +139,6 @@ namespace cs18_paskaita_Store.Functionality
                                                          $"{DateTime.Now.Hour}:{DateTime.Now.Minute} ";
             Cheque += "";
         }
+        #endregion
     }
 }
