@@ -13,7 +13,7 @@ namespace cs18_paskaita_Store
         {
             Console.WriteLine($"Piniginė: __ Eur");
             if (!decimal.TryParse(Console.ReadLine(), out decimal walletInput)) { Console.WriteLine("(!) Neteisinga įvestis"); }
-            CartAndChequeSystem.wallet = walletInput; // <-- pasikviečiu klasės CartAndChequeSystem Global'ą,
+            CartAndChequeSystem.wallet = walletInput; // <-- pasikviečiu klasės CartAndChequeSystem "Global'ą",
                                                       //     kuris laikys sumas, etc.
             #region MENU
             while (true)

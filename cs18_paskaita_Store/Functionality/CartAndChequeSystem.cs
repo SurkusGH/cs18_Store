@@ -136,7 +136,7 @@ namespace cs18_paskaita_Store.Functionality
             Cheque += $"\nMokėtina suma: {cartTotal} Eur";
             Cheque += "";
             Cheque += $"\nPirkinio data: {DateTime.Today.Year}-{DateTime.Today.Month}-{DateTime.Today.Day}, " +
-                                                         $"{DateTime.Now.Hour}:{DateTime.Now.Minute} ";
+                                                             $"{DateTime.Now.Hour}:{DateTime.Now.Minute} ";
             Cheque += "";
         }
         #endregion

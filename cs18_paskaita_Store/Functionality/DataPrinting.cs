@@ -85,7 +85,7 @@ namespace cs18_paskaita_Store.Functionality
             Console.WriteLine($"[2] Rinktis prekes  -> [2] Mėsos produktai              [2] {itemIdentifier.ItemIdentifier(sweetsRepository.SweetsList[1].Barcode)}");
             Console.WriteLine($"                       [3] Daržovės                     [3] {itemIdentifier.ItemIdentifier(sweetsRepository.SweetsList[2].Barcode)}");
             Console.WriteLine($"                       [4] Gėrimai                      [4] {itemIdentifier.ItemIdentifier(sweetsRepository.SweetsList[3].Barcode)}");
-            Console.WriteLine($"                                                                                                                                   ");
+            Console.WriteLine($"                                                        ");
         }
         public static void ProductSelectorSubMenu_Meats()
         {

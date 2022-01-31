@@ -81,7 +81,7 @@ namespace cs18_paskaita_Store
             // 3. Ar sutvarkytos validacijos.
             // 4. Ar stengiamasi pernaudot kodą(pvz.: jeigu dažnai naudojama "Įvestis"
             //    ir atliekama jos validacija, gal apsimoka ją kažkaip pernaudot ?)
-            // 5. Nepaminėta, bet xUnit'ai
+            // 5. Nepaminėta, bet xUnit'ai.
             #endregion
 
             StoreFrontMenu.Menu();
