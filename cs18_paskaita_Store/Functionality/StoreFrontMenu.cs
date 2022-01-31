@@ -9,18 +9,21 @@ namespace cs18_paskaita_Store
 {
     public class StoreFrontMenu
     {
-
         public static void Menu()
         {
-            Console.WriteLine("Piniginė: __ Eur");
+            Console.WriteLine($"Piniginė: __ Eur");
             if (!decimal.TryParse(Console.ReadLine(), out decimal walletInput)) { Console.WriteLine("(!) Neteisinga įvestis"); }
+            CartAndChequeSystem.wallet = walletInput;
+            #region MENIU
             while (true)
             {
-                Console.WriteLine("Meniu");
-                Console.WriteLine("Galimos parinktys");
-                Console.WriteLine("[1] Katalogas");
-                Console.WriteLine("[2] Rinktis prekes");
-                Console.WriteLine("[3] Krepšelis");
+                Console.WriteLine($"Meniu");
+                Console.WriteLine($"Galimos parinktys");
+                Console.WriteLine($"[1] Katalogas");
+                Console.WriteLine($"[2] Rinktis prekes");
+                Console.WriteLine($"[3] Krepšelis");
+                CartAndChequeSystem.ShowBalance();
+                DataPrinting.PrintCart();
 
                 if (!int.TryParse(Console.ReadLine(), out int menuInput)) { Console.WriteLine("(!) Neteisinga įvestis"); }
                 Console.Clear();
@@ -34,23 +37,28 @@ namespace cs18_paskaita_Store
                         AddToCart();
                         break;
                     case 3:
-                        CartAndChequeSystem.PrintCart();
+                        PurchaseSubMenu();
                         break;
-                    case 4:
-                        MailingSystem.SendEmail();
-                        break;
+                    //case 4:
+                    //    MailingSystem.SendEmail();
+                    //    break;
                 }
             }
+            #endregion
 
+            #region SUBMENU - Rodyti prekes
             static void Catalogue()
             {
-                Console.WriteLine("[1] Parodyti prekes -> [1] Saldumynai");
-                Console.WriteLine("                       [2] Mėsos produktai");
-                Console.WriteLine("                       [3] Daržovės");
-                Console.WriteLine("                       [4] Gėrimai");
-                Console.WriteLine("                       [5] Visas katalogas");
-                if (!int.TryParse(Console.ReadLine(), out int input)) { Console.WriteLine("(!) Neteisinga įvestis"); }
+                Console.WriteLine($"[1] Parodyti prekes -> [1] Saldumynai");
+                Console.WriteLine($"                       [2] Mėsos produktai");
+                Console.WriteLine($"                       [3] Daržovės");
+                Console.WriteLine($"                       [4] Gėrimai");
+                Console.WriteLine($"                       [5] Visas katalogas");
+                CartAndChequeSystem.ShowBalance();
+                DataPrinting.PrintCart();
 
+                if (!int.TryParse(Console.ReadLine(), out int input)) { Console.WriteLine("(!) Neteisinga įvestis"); }
+                Console.Clear();
                 switch (input)
                 {
                     case 1:
@@ -70,46 +78,89 @@ namespace cs18_paskaita_Store
                         break;
                 }
             }
+            #endregion
+
+            #region SUBMENU - Rintkis prekes
             static void AddToCart()
             {
-                Console.WriteLine("                       [1] Saldumynai");
-                Console.WriteLine("[2] Rinktis prekes  -> [2] Mėsos produktai");
-                Console.WriteLine("                       [3] Daržovės");
-                Console.WriteLine("                       [4] Gėrimai");
-                Console.WriteLine("                       [5] Visas katalogas");
-                Console.WriteLine("                       [6] Grįžti į pagrindinį meniu");
+                Console.WriteLine($"                       [1] Saldumynai");
+                Console.WriteLine($"[2] Rinktis prekes  -> [2] Mėsos produktai");
+                Console.WriteLine($"                       [3] Daržovės");
+                Console.WriteLine($"                       [4] Gėrimai");
+                CartAndChequeSystem.ShowBalance();
+                DataPrinting.PrintCart();
+
                 if (!int.TryParse(Console.ReadLine(), out int input)) { Console.WriteLine("(!) Neteisinga įvestis"); }
                 Console.Clear();
                 switch (input)
                 {
                     case 1:
-                        DataPrinting.PrintProductData_Sweets_Mini();
+                        DataPrinting.ProductSelectorSubMenu_Sweets();
+                        CartAndChequeSystem.ShowBalance();
+                        DataPrinting.PrintCart();
                         if (!int.TryParse(Console.ReadLine(), out int index)) { Console.WriteLine("(!) Neteisinga įvestis"); }
+                        Console.Clear();
                         CartAndChequeSystem.AddSweetsToCartList(index - 1);
                         break;
                     case 2:
-                        DataPrinting.PrintProductData_Meats_Mini();
+                        DataPrinting.ProductSelectorSubMenu_Meats();
+                        CartAndChequeSystem.ShowBalance();
+                        DataPrinting.PrintCart();
                         if (!int.TryParse(Console.ReadLine(), out int index2)) { Console.WriteLine("(!) Neteisinga įvestis"); }
+                        Console.Clear();
                         CartAndChequeSystem.AddMeatsToCartList(index2 - 1);
                         break;
                     case 3:
-                        DataPrinting.PrintProductData_Greens_Mini();
+                        DataPrinting.ProductSelectorSubMenu_Greens();
+                        CartAndChequeSystem.ShowBalance();
+                        DataPrinting.PrintCart();
                         if (!int.TryParse(Console.ReadLine(), out int index3)) { Console.WriteLine("(!) Neteisinga įvestis"); }
+                        Console.Clear();
                         CartAndChequeSystem.AddGreensToCartList(index3 - 1);
                         break;
                     case 4:
-                        DataPrinting.PrintProductData_Drinkables_Mini();
+                        DataPrinting.ProductSelectorSubMenu_Drinkables();
+                        CartAndChequeSystem.ShowBalance();
+                        DataPrinting.PrintCart();
                         if (!int.TryParse(Console.ReadLine(), out int index4)) { Console.WriteLine("(!) Neteisinga įvestis"); }
+                        Console.Clear();
                         CartAndChequeSystem.AddGreensToCartList(index4 - 1);
-                        break;
-                    case 5:
-                        DataPrinting.PrintAllCVS_dir();
-                        break;
-                    case 6:
-                        Menu();
                         break;
                 }
             }
+            #endregion
+
+            #region SUBMENU - Krepšelis
+            static void PurchaseSubMenu()
+            {
+                Console.WriteLine($"Meniu");
+                Console.WriteLine($"Galimos parinktys");
+                Console.WriteLine($"[1] Katalogas");
+                Console.WriteLine($"[2] Rinktis prekes");
+                Console.WriteLine($"[3] Krepšelis        -> [1] Parodyti krepšelį");
+                Console.WriteLine($"                        [2] Šalinti iš krepšelio");
+                Console.WriteLine($"                        [3] Tvirtinti pirkimą");
+                CartAndChequeSystem.ShowBalance();
+                DataPrinting.PrintCart();
+
+                if (!int.TryParse(Console.ReadLine(), out int menuInput)) { Console.WriteLine("(!) Neteisinga įvestis"); }
+                Console.Clear();
+
+                switch (menuInput)
+                {
+                    case 1:
+                        DataPrinting.PrintCartAndWallet();
+                        break;
+                    case 2:
+                        CartAndChequeSystem.RemoveFromCart();
+                        break;
+                    case 3:
+                        MailingSystem.MIMEMessage();
+                        Environment.Exit(0);
+                        break;
+                }
+            }
+            #endregion
         }
     }
 }

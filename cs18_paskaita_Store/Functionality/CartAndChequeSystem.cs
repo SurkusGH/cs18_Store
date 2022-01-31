@@ -10,7 +10,9 @@ namespace cs18_paskaita_Store.Functionality
     {
         
         public static List<string> cartList = new List<string>();
+        public static string Cheque;
         public static decimal cartTotal = 0m;
+        public static decimal wallet = 0m;
         static public void AddSweetsToCartList(int index)
         {
             var sweetsRepository = new SweetsRepository();
@@ -68,13 +70,49 @@ namespace cs18_paskaita_Store.Functionality
             cartTotal += drinkablesRepository.LoadDrinkablesCSVData()[index].Price;
         }
 
-        public static void PrintCart()
+        public static void ShowBalance()
         {
+            Console.WriteLine();
+            Console.WriteLine($"    Piniginė: {wallet} Eur");
+            Console.WriteLine($"   Krepšelis: {cartTotal} Eur");
+            CheckBalance();
+        }
+
+        public static void CheckBalance()
+        {
+            if (wallet - cartTotal < 0)
+            {
+                Console.WriteLine($"(!) TRŪKSTA {(wallet-cartTotal)*-1} Eur");
+            }
+        }
+
+        public static void RemoveFromCart()
+        {
+            int indexer = 1;
+
             foreach (var item in cartList)
             {
-                Console.WriteLine(item);
+                Console.WriteLine($"Prekė #{indexer++}: {item}");
             }
-            Console.WriteLine($"Mokėtina suma: {cartTotal} Eur");
+            Console.WriteLine($"Pasirinkite šalinamos prekės indeksą");
+            if (!int.TryParse(Console.ReadLine(), out int indexToRemove)) { Console.WriteLine("(!) Neteisinga įvestis"); }
+
+            cartList.RemoveAt(indexToRemove-1);
+        }
+
+        public static void ConstructChequeString()
+        {
+            int index = 1;
+            foreach (var item in cartList)
+            {
+                Cheque += $"\n Prekė #{index++}: {item}";
+            }
+            Cheque += "";
+            Cheque += $"\nMokėtina suma: {cartTotal} Eur";
+            Cheque += "";
+            Cheque += $"\nPirkinio data: {DateTime.Today.Year}-{DateTime.Today.Month}-{DateTime.Today.Day}, " +
+                                                         $"{DateTime.Now.Hour}:{DateTime.Now.Minute} ";
+            Cheque += "";
         }
     }
 }

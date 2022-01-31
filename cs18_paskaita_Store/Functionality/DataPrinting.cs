@@ -8,7 +8,7 @@ namespace cs18_paskaita_Store.Functionality
 {
     public class DataPrinting
     {
-        #region DETAILED-CUI
+        #region DETAILED-CONSOLE-UI
         public static void PrintProductData_Sweets()
         {
             var sweetsRepository = new SweetsRepository();
@@ -75,7 +75,7 @@ namespace cs18_paskaita_Store.Functionality
         #endregion
 
         #region MINI-CONSOLE-UI
-        public static void PrintProductData_Sweets_Mini()
+        public static void ProductSelectorSubMenu_Sweets()
         {
             var sweetsRepository = new SweetsRepository();
             var itemIdentifier = new BarcodeAuthenticator();
@@ -85,49 +85,90 @@ namespace cs18_paskaita_Store.Functionality
             Console.WriteLine($"[2] Rinktis prekes  -> [2] Mėsos produktai              [2] {itemIdentifier.ItemIdentifier(sweetsRepository.SweetsList[1].Barcode)}");
             Console.WriteLine($"                       [3] Daržovės                     [3] {itemIdentifier.ItemIdentifier(sweetsRepository.SweetsList[2].Barcode)}");
             Console.WriteLine($"                       [4] Gėrimai                      [4] {itemIdentifier.ItemIdentifier(sweetsRepository.SweetsList[3].Barcode)}");
-            Console.WriteLine($"                       [5] Visas katalogas");
-            Console.WriteLine($"                       [6] Grįžti į pagrindinį meniu");
+            Console.WriteLine($"                                                                                                                                   ");
         }
-        public static void PrintProductData_Meats_Mini()
+        public static void ProductSelectorSubMenu_Meats()
         {
             var meatsRepository = new MeatsRepository();
             var itemIdentifier = new BarcodeAuthenticator();
             meatsRepository.LoadMeatsCSVData();
 
-            Console.WriteLine($"                       [1] Saldumynai                   [1] {itemIdentifier.ItemIdentifier(meatsRepository.MeatsList[0].Barcode)}");
-            Console.WriteLine($"[2] Rinktis prekes  -> [2] Mėsos produktai           -> [2] {itemIdentifier.ItemIdentifier(meatsRepository.MeatsList[1].Barcode)}");
-            Console.WriteLine($"                       [3] Daržovės                     [3] {itemIdentifier.ItemIdentifier(meatsRepository.MeatsList[2].Barcode)}");
-            Console.WriteLine($"                       [4] Gėrimai                      [4] {itemIdentifier.ItemIdentifier(meatsRepository.MeatsList[3].Barcode)}");
-            Console.WriteLine($"                       [5] Visas katalogas");
-            Console.WriteLine($"                       [6] Grįžti į pagrindinį meniu");
+            Console.WriteLine($"                       [1] Saldumynai                   ");
+            Console.WriteLine($"[2] Rinktis prekes  -> [2] Mėsos produktai           -> [1] {itemIdentifier.ItemIdentifier(meatsRepository.MeatsList[0].Barcode)}");
+            Console.WriteLine($"                       [3] Daržovės                     [2] {itemIdentifier.ItemIdentifier(meatsRepository.MeatsList[1].Barcode)}");
+            Console.WriteLine($"                       [4] Gėrimai                      [3] {itemIdentifier.ItemIdentifier(meatsRepository.MeatsList[2].Barcode)}");
+            Console.WriteLine($"                                                        [4] {itemIdentifier.ItemIdentifier(meatsRepository.MeatsList[3].Barcode)} ");
         }
-        public static void PrintProductData_Greens_Mini()
+        public static void ProductSelectorSubMenu_Greens()
         {
             var greensRepository = new GreensRepository();
             var itemIdentifier = new BarcodeAuthenticator();
             greensRepository.LoadGreensCSVData();
 
-            Console.WriteLine($"                       [1] Saldumynai                   [1] {itemIdentifier.ItemIdentifier(greensRepository.GreensList[0].Barcode)}");
-            Console.WriteLine($"[2] Rinktis prekes  -> [2] Mėsos produktai              [2] {itemIdentifier.ItemIdentifier(greensRepository.GreensList[1].Barcode)}");
-            Console.WriteLine($"                       [3] Daržovės                  -> [3] {itemIdentifier.ItemIdentifier(greensRepository.GreensList[2].Barcode)}");
-            Console.WriteLine($"                       [4] Gėrimai                      [4] {itemIdentifier.ItemIdentifier(greensRepository.GreensList[3].Barcode)}");
-            Console.WriteLine($"                       [5] Visas katalogas");
-            Console.WriteLine($"                       [6] Grįžti į pagrindinį meniu");
+            Console.WriteLine($"                       [1] Saldumynai                   ");
+            Console.WriteLine($"[2] Rinktis prekes  -> [2] Mėsos produktai              ");
+            Console.WriteLine($"                       [3] Daržovės                  -> [1] {itemIdentifier.ItemIdentifier(greensRepository.GreensList[0].Barcode)}");
+            Console.WriteLine($"                       [4] Gėrimai                      [2] {itemIdentifier.ItemIdentifier(greensRepository.GreensList[1].Barcode)}");
+            Console.WriteLine($"                                                        [3] {itemIdentifier.ItemIdentifier(greensRepository.GreensList[2].Barcode)}");
+            Console.WriteLine($"                                                        [4] {itemIdentifier.ItemIdentifier(greensRepository.GreensList[3].Barcode)}");
             //CartAndChequeSystem.AddSweetsToCartList(input);
         }
-        public static void PrintProductData_Drinkables_Mini()
+        public static void ProductSelectorSubMenu_Drinkables()
         {
             var drinkablessRepository = new DrinkablesRepository();
             var itemIdentifier = new BarcodeAuthenticator();
             drinkablessRepository.LoadDrinkablesCSVData();
 
-            Console.WriteLine($"                       [1] Saldumynai                   [1] {itemIdentifier.ItemIdentifier(drinkablessRepository.DrinkablesList[0].Barcode)}");
-            Console.WriteLine($"[2] Rinktis prekes  -> [2] Mėsos produktai              [2] {itemIdentifier.ItemIdentifier(drinkablessRepository.DrinkablesList[1].Barcode)}");
-            Console.WriteLine($"                       [3] Daržovės                     [3] {itemIdentifier.ItemIdentifier(drinkablessRepository.DrinkablesList[2].Barcode)}");
-            Console.WriteLine($"                       [4] Gėrimai                   -> [4] {itemIdentifier.ItemIdentifier(drinkablessRepository.DrinkablesList[3].Barcode)}");
-            Console.WriteLine($"                       [5] Visas katalogas");
-            Console.WriteLine($"                       [6] Grįžti į pagrindinį meniu");
-            #endregion
+            Console.WriteLine($"                       [1] Saldumynai                   ");
+            Console.WriteLine($"[2] Rinktis prekes  -> [2] Mėsos produktai              ");
+            Console.WriteLine($"                       [3] Daržovės                     ");
+            Console.WriteLine($"                       [4] Gėrimai                   -> [1] {itemIdentifier.ItemIdentifier(drinkablessRepository.DrinkablesList[0].Barcode)}");
+            Console.WriteLine($"                                                        [2] {itemIdentifier.ItemIdentifier(drinkablessRepository.DrinkablesList[1].Barcode)}");
+            Console.WriteLine($"                                                        [3] {itemIdentifier.ItemIdentifier(drinkablessRepository.DrinkablesList[2].Barcode)}");
+            Console.WriteLine($"                                                        [4] {itemIdentifier.ItemIdentifier(drinkablessRepository.DrinkablesList[3].Barcode)}");
         }
+        #endregion
+
+        #region OTHER PRINTING
+        public static void PrintCart()
+        {
+            Console.WriteLine("Krepšelis:");
+
+            int index = 1;
+            foreach (var item in CartAndChequeSystem.cartList)
+            {
+                Console.WriteLine($"   Prekė #{index++}: {item}");
+            }
+        }
+
+        public static void PrintCartAndWallet()
+        {
+            int index = 1;
+            foreach (var item in CartAndChequeSystem.cartList)
+            {
+                Console.WriteLine($"Prekė #{index++}: {item}");
+            }
+            Console.WriteLine();
+            Console.WriteLine($"Mokėtina suma: {CartAndChequeSystem.cartTotal} Eur");
+            Console.WriteLine();
+            Console.WriteLine($"     Piniginė: {CartAndChequeSystem.wallet} Eur");
+            Console.WriteLine();
+            CartAndChequeSystem.CheckBalance();
+        }
+        public static void PrintCheque()
+        {
+            int index = 1;
+            foreach (var item in CartAndChequeSystem.cartList)
+            {
+                Console.WriteLine($"Prekė #{index++}: {item}");
+            }
+            Console.WriteLine();
+            Console.WriteLine($"Mokėtina suma: {CartAndChequeSystem.cartTotal} Eur");
+            Console.WriteLine();
+            Console.WriteLine($"Pirkinio data: {DateTime.Today.Year}-{DateTime.Today.Month}-{DateTime.Today.Day}, " +
+                                                         $"{DateTime.Now.Hour}:{DateTime.Now.Minute} ");
+            Console.WriteLine();
+        }
+        #endregion
     }
 }
