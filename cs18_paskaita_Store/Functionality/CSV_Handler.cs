@@ -12,7 +12,7 @@ namespace cs18_paskaita_Store.Functionality
     public class CSV_Handler
     {
         #region SWEETS handling - HARDCODED
-        public void WriteSweetsDataToCSV(string coordinates, Sweets sweets)
+        public void WriteSweetsDataToCSV(string coordinates, Sweets sweets) // <-- Metodas nenaudojamas
         {
             string path = $@"D:\GitHub\cs18_paskaita_Store\cs18_paskaita_Store\CSV_dir\{coordinates}.csv";
             string DataString = Environment.NewLine + $"{sweets.Carbohydrates}, " +
@@ -48,14 +48,14 @@ namespace cs18_paskaita_Store.Functionality
             sweetsParcel.Price = decimal.Parse(valueCache[1].ToString());
             sweetsParcel.Barcode = float.Parse(valueCache[2].ToString());
             sweetsParcel.Weight = float.Parse(valueCache[3].ToString());
-
+            
             return sweetsParcel;
         }
         #endregion
 
 
         #region MEATS handling - HARDCODED
-        public void WriteMeatsDataToCSV(string coordinates, Meats meats)
+        public void WriteMeatsDataToCSV(string coordinates, Meats meats) // <-- Metodas nenaudojamas
         {
             string path = $@"D:\GitHub\cs18_paskaita_Store\cs18_paskaita_Store\CSV_dir\{coordinates}.csv";
             string DataString = Environment.NewLine + $"{meats.Proteins}, " +
@@ -98,7 +98,7 @@ namespace cs18_paskaita_Store.Functionality
 
 
         #region GREENS handling - HARDCODED
-        public void WriteGreensDataToCSV(string coordinates, Greens greens)
+        public void WriteGreensDataToCSV(string coordinates, Greens greens) // <-- Metodas nenaudojamas
         {
             string path = $@"D:\GitHub\cs18_paskaita_Store\cs18_paskaita_Store\CSV_dir\{coordinates}.csv";
             string DataString = Environment.NewLine + $"{greens.Fibers}, " +
@@ -141,7 +141,7 @@ namespace cs18_paskaita_Store.Functionality
 
 
         #region DRINKABLES handling - HARDCODED
-        public void WriteDrinkablesDataToCSV(string coordinates, Drinkables drinkables)
+        public void WriteDrinkablesDataToCSV(string coordinates, Drinkables drinkables)  // <-- Metodas nenaudojamas
         {
             string path = $@"D:\GitHub\cs18_paskaita_Store\cs18_paskaita_Store\CSV_dir\{coordinates}.csv";
             string DataString = Environment.NewLine + $"{drinkables.Volume}, " +

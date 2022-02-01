@@ -97,7 +97,8 @@ namespace cs18_paskaita_Store.Functionality
             }
         }
 
-        public static void RemoveFromCart()
+
+        public static void ShowCurrentCartWithIndexing()
         {
             int indexer = 1;
 
@@ -105,12 +106,12 @@ namespace cs18_paskaita_Store.Functionality
             {
                 Console.WriteLine($"Prekė #{indexer++}: {item}");
             }
-            Console.WriteLine($"Pasirinkite šalinamos prekės indeksą");
-            if (!int.TryParse(Console.ReadLine(), out int indexToRemove)) { Console.WriteLine("(!) Neteisinga įvestis"); }
-
-            cartList.RemoveAt(indexToRemove-1);
+        }
+        public static void RemoveFromCart(int indexToRemove)
+        {
+            cartList.RemoveAt(indexToRemove - 1);
             cartTotal -= moneyOperations[indexToRemove - 1];
-            moneyOperations.RemoveAt(indexToRemove-1);
+            moneyOperations.RemoveAt(indexToRemove - 1);
         }
 
         public static void CheckWallet()

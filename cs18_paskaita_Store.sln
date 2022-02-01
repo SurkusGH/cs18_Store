@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cs18_paskaita_Store", "cs18_paskaita_Store\cs18_paskaita_Store.csproj", "{9C16A258-6862-4D69-AB96-43FA22140C2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartAndChequeSystemValidation_xUnit", "CartAndChequeSystemValidation_xUnit\CartAndChequeSystemValidation_xUnit.csproj", "{4062720F-0565-490B-8FC0-EE5C41DDC845}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeAuthenticatorValitation_xUnit", "BarcodeAuthenticatorValitation_xUnit\BarcodeAuthenticatorValitation_xUnit.csproj", "{0B9971CA-0045-4457-9586-FA2EFF2119BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{9C16A258-6862-4D69-AB96-43FA22140C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C16A258-6862-4D69-AB96-43FA22140C2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C16A258-6862-4D69-AB96-43FA22140C2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4062720F-0565-490B-8FC0-EE5C41DDC845}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4062720F-0565-490B-8FC0-EE5C41DDC845}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4062720F-0565-490B-8FC0-EE5C41DDC845}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4062720F-0565-490B-8FC0-EE5C41DDC845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B9971CA-0045-4457-9586-FA2EFF2119BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B9971CA-0045-4457-9586-FA2EFF2119BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B9971CA-0045-4457-9586-FA2EFF2119BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B9971CA-0045-4457-9586-FA2EFF2119BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

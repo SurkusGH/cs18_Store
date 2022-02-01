@@ -6,26 +6,13 @@ using System.Threading.Tasks;
 
 namespace cs18_paskaita_Store.Functionality
 {
-    internal class BarcodeAuthenticator
+    public class BarcodeAuthenticator
     {
         public string ItemIdentifier(float barcode)
         {
             string returningName = "";
             switch (barcode)
             {
-                case 10001:
-                    returningName =  "Vištiena";
-                    break;
-                case 10002:
-                    returningName = "Kiauliena";
-                    break;
-                case 10003:
-                    returningName = "Jautiena";
-                    break;
-                case 10004:
-                    returningName = "Antiena";
-                    break;
-
                 case 20011:
                     returningName = "Šokoladas";
                     break;
@@ -37,6 +24,19 @@ namespace cs18_paskaita_Store.Functionality
                     break;
                 case 20024:
                     returningName = "BonBons";
+                    break;
+
+                case 10001:
+                    returningName = "Vištiena";
+                    break;
+                case 10002:
+                    returningName = "Kiauliena";
+                    break;
+                case 10003:
+                    returningName = "Jautiena";
+                    break;
+                case 10004:
+                    returningName = "Antiena";
                     break;
 
                 case 30031:
@@ -64,7 +64,6 @@ namespace cs18_paskaita_Store.Functionality
                 case 40044:
                     returningName = "Pienas";
                     break;
-
             }
             return returningName;
         }

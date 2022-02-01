@@ -7,11 +7,16 @@ using System.Threading.Tasks;
 
 namespace cs18_paskaita_Store.Functionality
 {
-    internal class InputValidationSystem
+    public class InputValidationSystem
     {
-        public static void ConsoleDelay() // <-- planavau naudoti plačiau, bet be to, kad atidėtų console clean'ą, kad spėtų errorą parodyti, nelabai yra kur
+        #region THEORY
+
+        //https://dev.to/zacharypatten/beginner-s-guide-to-console-input-in-c-1654
+
+        #endregion
+
+        public static void ConsoleDelay(int milliseconds) // <-- planavau naudoti plačiau, bet be to, kad atidėtų console clean'ą, kad spėtų errorą parodyti, nelabai yra kur
         {
-            int milliseconds = 2000;
             Thread.Sleep(milliseconds);
         }
 
@@ -30,9 +35,9 @@ namespace cs18_paskaita_Store.Functionality
             Console.Clear();
             return inputValue;
         }
-        public static int InputValidation() // Overload'as be argumentų
-        {
-            string input = Console.ReadLine();
+        public static int InputValidation() // Overload'as be argumentų (Galima naudoti ten, kur nėra list'as indeksuojamas, kad nemestų klaidos)
+        {                                   // jeigu norėčiau listą plėsti tiesiog susiečiau kintamąjį selectorSize su listo dydžiu list.count, o ne vesčiau manually, kaip ankstesniame metode
+            string input = Console.ReadLine(); //                                                                                                Taip padaryta yra CartAndChequeSystem.RemoveFromCart metode.
             int inputValue;
             bool success = int.TryParse(input, out inputValue) && inputValue > 0;
             while (!success)
@@ -41,6 +46,21 @@ namespace cs18_paskaita_Store.Functionality
                 Console.Write(" -> Bandykite dar kartą:");
                 input = Console.ReadLine();
                 success = int.TryParse(input, out inputValue) && inputValue > 0;
+            }
+            Console.Clear();
+            return inputValue;
+        }
+        public static decimal InputValidationDecimal()
+        {
+            string input = Console.ReadLine();
+            decimal inputValue;
+            bool success = decimal.TryParse(input, out inputValue) && inputValue > 0;
+            while (!success)
+            {
+                Console.WriteLine("(!) Netinkama įvestis");
+                Console.Write(" -> Bandykite dar kartą:");
+                input = Console.ReadLine();
+                success = decimal.TryParse(input, out inputValue) && inputValue > 0;
             }
             Console.Clear();
             return inputValue;

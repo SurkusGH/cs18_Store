@@ -12,7 +12,7 @@ namespace cs18_paskaita_Store
         public static void Menu()
         {
             Console.WriteLine($"Piniginė: __ Eur");
-            decimal walletInput = InputValidationSystem.InputValidation();
+            decimal walletInput = InputValidationSystem.InputValidationDecimal();
             CartAndChequeSystem.wallet = walletInput; // <-- pasikviečiu klasės CartAndChequeSystem "Global'ą",
                                                       //     kuris laikys sumas, etc.
             #region MENU
@@ -126,7 +126,7 @@ namespace cs18_paskaita_Store
                         DataPrinting.PrintCart();
                         int index4 = InputValidationSystem.InputValidation(4);
                         Console.Clear();
-                        CartAndChequeSystem.AddGreensToCartList(index4 - 1);
+                        CartAndChequeSystem.AddDrinkablesToCartList(index4 - 1);
                         break;
                 }
             }
@@ -154,12 +154,15 @@ namespace cs18_paskaita_Store
                         DataPrinting.PrintCartAndWallet();
                         break;
                     case 2:
-                        CartAndChequeSystem.RemoveFromCart();
+                        CartAndChequeSystem.ShowCurrentCartWithIndexing();
+                        Console.WriteLine($"Pasirinkite šalinamos prekės indeksą");
+                        int indexToRemove = InputValidationSystem.InputValidation(CartAndChequeSystem.moneyOperations.Count + 1); // <-- dėl grožio čia mostly, apibrėžiu tiesiog index'ą
+                        CartAndChequeSystem.RemoveFromCart(indexToRemove);
                         break;
                     case 3:
                         CartAndChequeSystem.CheckWallet();
                         MailingSystem.MIMEMessage();
-                        Environment.Exit(0);
+                        DataPrinting.ThankYouForShopping();
                         break;
                 }
             }

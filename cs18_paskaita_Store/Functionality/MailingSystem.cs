@@ -20,7 +20,7 @@ namespace cs18_paskaita_Store.Functionality
             MimeMessage message = new MimeMessage(); // <-- Sukuriu naują message objektą, į kurį talpinsiu datą laiško
             message.From.Add(new MailboxAddress("C# Parduotuvė", "DotNetSendingEmail@gmail.com")); // <-- šitą dalį gavėjas matys kaip sender lauką
 
-            message.To.Add(MailboxAddress.Parse("V.Surkus@me.com")); // <-- Adresato laukas; parse konvertuoja string'ą į pašto adreso duomenį
+            message.To.Add(MailboxAddress.Parse("V.Surkus@me.com")); // <-- Adresato laukas; parse konvertuoja string'ą į pašto adreso "duomens tipą"
             message.To.Add(MailboxAddress.Parse("DotNetSendingEmail@gmail.com"));
 
             message.Subject = $"{DateTime.Today.Year}-{DateTime.Today.Month}-{DateTime.Today.Day} Pirkinys";

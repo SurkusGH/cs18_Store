@@ -172,6 +172,16 @@ namespace cs18_paskaita_Store.Functionality
                                                          $"{DateTime.Now.Hour}:{DateTime.Now.Minute} ");
             Console.WriteLine();
         }
+
+        public static void ThankYouForShopping()
+        {
+            Console.WriteLine($"Čekis išsiųstas elektroniniu paštu");
+            Console.WriteLine($"Ačiū, kad pirkote C# parduotuvėje!");
+            InputValidationSystem.ConsoleDelay(3000);
+            Console.Clear(); 
+            Environment.Exit(0);
+        }
+
         #endregion
     }
 }
