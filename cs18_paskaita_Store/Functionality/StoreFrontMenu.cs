@@ -157,7 +157,7 @@ namespace cs18_paskaita_Store
                         CartAndChequeSystem.ShowCurrentCartWithIndexing();
                         Console.WriteLine($"Pasirinkite šalinamos prekės indeksą");
                         int indexToRemove = InputValidationSystem.InputValidation(CartAndChequeSystem.moneyOperations.Count + 1); // <-- dėl grožio čia mostly, apibrėžiu tiesiog index'ą
-                        CartAndChequeSystem.RemoveFromCart(indexToRemove);
+                        CartAndChequeSystem.RemoveFromCart(indexToRemove);                                                        //     netinkamas index'as nemeta error ir neapibrėžtu max value
                         break;
                     case 3:
                         CartAndChequeSystem.CheckWallet();
