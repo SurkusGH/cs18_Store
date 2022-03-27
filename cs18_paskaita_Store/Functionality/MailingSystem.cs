@@ -1,12 +1,6 @@
 ﻿using System;
 using MailKit.Net.Smtp;
-using MailKit;
 using MimeKit; // <-- Pašto siuntimo daiktas: https://stackoverflow.com/questions/449887/sending-e-mail-using-c-sharp
-
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace cs18_paskaita_Store.Functionality
 {

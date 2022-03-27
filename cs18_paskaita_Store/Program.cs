@@ -1,6 +1,4 @@
-﻿using cs18_paskaita_Store.Functionality;
-using cs18_paskaita_Store.Goods;
-using System;
+﻿using System;
 
 namespace cs18_paskaita_Store
 {
