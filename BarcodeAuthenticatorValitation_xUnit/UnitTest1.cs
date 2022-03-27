@@ -1,6 +1,5 @@
 using cs18_paskaita_Store;
 using cs18_paskaita_Store.Functionality;
-using System;
 using Xunit;
 
 namespace BarcodeAuthenticatorValitation_xUnit

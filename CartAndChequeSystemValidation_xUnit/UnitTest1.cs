@@ -1,5 +1,4 @@
 using cs18_paskaita_Store.Functionality;
-using System;
 using Xunit;
 
 namespace CartAndChequeSystemValidation_xUnit
