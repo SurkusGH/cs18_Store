@@ -1,6 +1,7 @@
 ﻿using cs18_paskaita_Store.Functionality;
 using cs18_paskaita_Store.Goods;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace cs18_paskaita_Store
 {
@@ -14,8 +15,15 @@ namespace cs18_paskaita_Store
         }
         public List<Sweets> LoadSweetsCSVData()
         {
-            var handler = new CSV_Handler();
-            SweetsList = handler.ReadSweetsCSVData("Sweets");
+            //var handler = new CSV_Handler();
+            //SweetsList = handler.ReadSweetsCSVData("Sweets");
+            //return SweetsList;
+
+            using (var dbContext = new ItemContext()) 
+            {
+                var query = dbContext.Candies.OrderBy(b=> b.Barcode);
+                SweetsList.AddRange(query.ToList());
+            };
             return SweetsList;
         }
         public void AddSweetToCSV(Sweets sweet)
