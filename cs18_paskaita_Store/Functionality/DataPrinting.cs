@@ -9,7 +9,7 @@ namespace cs18_paskaita_Store.Functionality
         {
             var sweetsRepository = new SweetsRepository();
             var itemIdentifier = new BarcodeAuthenticator();
-            foreach (var item in sweetsRepository.LoadSweetsCSVData())
+            foreach (var item in sweetsRepository.LoadSweets_DbData())
             {
                 Console.WriteLine($"Produktas: {itemIdentifier.ItemIdentifier(item.Barcode)}");
                 Console.WriteLine($"     turi: {item.Carbohydrates} angliavandeinių");
@@ -23,7 +23,7 @@ namespace cs18_paskaita_Store.Functionality
         {
             var meatsRepository = new MeatsRepository();
             var itemIdentifier = new BarcodeAuthenticator();
-            foreach (var item in meatsRepository.LoadMeatsCSVData())
+            foreach (var item in meatsRepository.LoadMeats_DbData())
             {
                 Console.WriteLine($"Produktas: {itemIdentifier.ItemIdentifier(item.Barcode)}");
                 Console.WriteLine($"     turi: {item.Proteins} baltymų");
@@ -37,7 +37,7 @@ namespace cs18_paskaita_Store.Functionality
         {
             var greensRepository = new GreensRepository();
             var itemIdentifier = new BarcodeAuthenticator();
-            foreach (var item in greensRepository.LoadGreensCSVData())
+            foreach (var item in greensRepository.LoadGreens_DbData())
             {
                 Console.WriteLine($"Produktas: {itemIdentifier.ItemIdentifier(item.Barcode)}");
                 Console.WriteLine($"     turi: {item.Fibers} skaidulinių medžiagų");
@@ -51,7 +51,7 @@ namespace cs18_paskaita_Store.Functionality
         {
             var drinkablesRepository = new DrinkablesRepository();
             var itemIdentifier = new BarcodeAuthenticator();
-            foreach (var item in drinkablesRepository.LoadDrinkablesCSVData())
+            foreach (var item in drinkablesRepository.LoadDrinkables_DbData())
             {
                 Console.WriteLine($"Produktas: {itemIdentifier.ItemIdentifier(item.Barcode)}");
                 Console.WriteLine($"      yra: {item.Volume} ml taros");
@@ -75,7 +75,7 @@ namespace cs18_paskaita_Store.Functionality
         {
             var sweetsRepository = new SweetsRepository();
             var itemIdentifier = new BarcodeAuthenticator();
-            sweetsRepository.LoadSweetsCSVData();
+            sweetsRepository.LoadSweets_DbData();
 
             Console.WriteLine($"                    -> [1] Saldumynai -> [1] {itemIdentifier.ItemIdentifier(sweetsRepository.SweetsList[0].Barcode)}");
             Console.WriteLine($"[2] Rinktis prekes                    -> [2] {itemIdentifier.ItemIdentifier(sweetsRepository.SweetsList[1].Barcode)}");
@@ -87,7 +87,7 @@ namespace cs18_paskaita_Store.Functionality
         {
             var meatsRepository = new MeatsRepository();
             var itemIdentifier = new BarcodeAuthenticator();
-            meatsRepository.LoadMeatsCSVData();
+            meatsRepository.LoadMeats_DbData();
 
             Console.WriteLine($"                                                        ");
             Console.WriteLine($"[2] Rinktis prekes  -> [2] Mėsos produktai -> [1] {itemIdentifier.ItemIdentifier(meatsRepository.MeatsList[0].Barcode)}");
@@ -99,7 +99,7 @@ namespace cs18_paskaita_Store.Functionality
         {
             var greensRepository = new GreensRepository();
             var itemIdentifier = new BarcodeAuthenticator();
-            greensRepository.LoadGreensCSVData();
+            greensRepository.LoadGreens_DbData();
 
             Console.WriteLine($"                                                        ");
             Console.WriteLine($"[2] Rinktis prekes                                      ");
@@ -113,7 +113,7 @@ namespace cs18_paskaita_Store.Functionality
         {
             var drinkablessRepository = new DrinkablesRepository();
             var itemIdentifier = new BarcodeAuthenticator();
-            drinkablessRepository.LoadDrinkablesCSVData();
+            drinkablessRepository.LoadDrinkables_DbData();
 
             Console.WriteLine($"                                                        ");
             Console.WriteLine($"[2] Rinktis prekes                                      ");

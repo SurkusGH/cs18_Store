@@ -14,10 +14,12 @@ namespace cs18_paskaita_Store
         }
         public List<Drinkables> LoadDrinkablesCSVData()
         {
-            //var handler = new CSV_Handler();
-            //DrinkablesList = handler.ReadDrinkablesCSVData("Drinkables");
-            //return DrinkablesList;
-
+            var handler = new CSV_Handler();
+            DrinkablesList = handler.ReadDrinkablesCSVData("Drinkables");
+            return DrinkablesList;
+        }
+        public List<Drinkables> LoadDrinkables_DbData()
+        {
             using (var dbContext = new ItemContext())
             {
                 var query = dbContext.Drinks.OrderBy(b => b.Barcode);

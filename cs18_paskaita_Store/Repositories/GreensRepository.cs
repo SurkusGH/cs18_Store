@@ -14,10 +14,12 @@ namespace cs18_paskaita_Store
         }
         public List<Greens> LoadGreensCSVData()
         {
-            //var handler = new CSV_Handler();
-            //GreensList = handler.ReadGreensCSVData("Greens");
-            //return GreensList;
-
+            var handler = new CSV_Handler();
+            GreensList = handler.ReadGreensCSVData("Greens");
+            return GreensList;
+        }
+        public List<Greens> LoadGreens_DbData()
+        {
             using (var dbContext = new ItemContext())
             {
                 var query = dbContext.Vegetables.OrderBy(b => b.Barcode);

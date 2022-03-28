@@ -15,10 +15,12 @@ namespace cs18_paskaita_Store
         }
         public List<Meats> LoadMeatsCSVData()
         {
-            //var handler = new CSV_Handler();
-            //MeatsList = handler.ReadMeatsCSVData("Meats");
-            //return MeatsList;
-
+            var handler = new CSV_Handler();
+            MeatsList = handler.ReadMeatsCSVData("Meats");
+            return MeatsList;
+        }
+        public List<Meats> LoadMeats_DbData()
+        {
             using (var dbContext = new ItemContext())
             {
                 var query = dbContext.Meats.OrderBy(b => b.Barcode);

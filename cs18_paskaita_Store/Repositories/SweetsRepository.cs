@@ -15,13 +15,15 @@ namespace cs18_paskaita_Store
         }
         public List<Sweets> LoadSweetsCSVData()
         {
-            //var handler = new CSV_Handler();
-            //SweetsList = handler.ReadSweetsCSVData("Sweets");
-            //return SweetsList;
-
-            using (var dbContext = new ItemContext()) 
+            var handler = new CSV_Handler();
+            SweetsList = handler.ReadSweetsCSVData("Sweets");
+            return SweetsList;
+        }
+        public List<Sweets> LoadSweets_DbData()
+        {
+            using (var dbContext = new ItemContext())
             {
-                var query = dbContext.Candies.OrderBy(b=> b.Barcode);
+                var query = dbContext.Candies.OrderBy(b => b.Barcode);
                 SweetsList.AddRange(query.ToList());
             };
             return SweetsList;

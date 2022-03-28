@@ -19,60 +19,60 @@ namespace cs18_paskaita_Store.Functionality
             var sweetsRepository = new SweetsRepository();
             var itemIdentifier = new BarcodeAuthenticator();
 
-            for (int i = 0; i < sweetsRepository.LoadSweetsCSVData().Count; i++)
+            for (int i = 0; i < 4; i++)
             {
                 if (i == index)
                 {
-                    cartList.Add($"{itemIdentifier.ItemIdentifier(sweetsRepository.LoadSweetsCSVData()[index].Barcode)} už {sweetsRepository.LoadSweetsCSVData()[index].Price} Eur");
+                    cartList.Add($"{itemIdentifier.ItemIdentifier(sweetsRepository.LoadSweets_DbData()[index].Barcode)} už {sweetsRepository.LoadSweets_DbData()[index].Price} Eur");
                 }
             }
-            cartTotal += sweetsRepository.LoadSweetsCSVData()[index].Price;
-            moneyOperations.Add(sweetsRepository.LoadSweetsCSVData()[index].Price);
+            cartTotal += sweetsRepository.LoadSweets_DbData()[index].Price;
+            moneyOperations.Add(sweetsRepository.LoadSweets_DbData()[index].Price);
         }
         static public void AddMeatsToCartList(int index)
         {
             var meatsRepository = new MeatsRepository();
             var itemIdentifier = new BarcodeAuthenticator();
 
-            for (int i = 0; i < meatsRepository.LoadMeatsCSVData().Count; i++)
+            for (int i = 0; i < 4; i++)
             {
                 if (i == index)
                 {
-                    cartList.Add($"{itemIdentifier.ItemIdentifier(meatsRepository.LoadMeatsCSVData()[index].Barcode)} už {meatsRepository.LoadMeatsCSVData()[index].Price} Eur");
+                    cartList.Add($"{itemIdentifier.ItemIdentifier(meatsRepository.LoadMeats_DbData()[index].Barcode)} už {meatsRepository.LoadMeats_DbData()[index].Price} Eur");
                 }
             }
-            cartTotal += meatsRepository.LoadMeatsCSVData()[index].Price;
-            moneyOperations.Add(meatsRepository.LoadMeatsCSVData()[index].Price);
+            cartTotal += meatsRepository.LoadMeats_DbData()[index].Price;
+            moneyOperations.Add(meatsRepository.LoadMeats_DbData()[index].Price);
         }
         static public void AddGreensToCartList(int index)
         {
             var greensRepository = new GreensRepository();
             var itemIdentifier = new BarcodeAuthenticator();
 
-            for (int i = 0; i < greensRepository.LoadGreensCSVData().Count; i++)
+            for (int i = 0; i < 4; i++)
             {
                 if (i == index)
                 {
-                    cartList.Add($"{itemIdentifier.ItemIdentifier(greensRepository.LoadGreensCSVData()[index].Barcode)} už {greensRepository.LoadGreensCSVData()[index].Price} Eur");
+                    cartList.Add($"{itemIdentifier.ItemIdentifier(greensRepository.LoadGreens_DbData()[index].Barcode)} už {greensRepository.LoadGreens_DbData()[index].Price} Eur");
                 }
             }
-            cartTotal += greensRepository.LoadGreensCSVData()[index].Price;
-            moneyOperations.Add(greensRepository.LoadGreensCSVData()[index].Price);
+            cartTotal += greensRepository.LoadGreens_DbData()[index].Price;
+            moneyOperations.Add(greensRepository.LoadGreens_DbData()[index].Price);
         }
         static public void AddDrinkablesToCartList(int index)
         {
             var drinkablesRepository = new DrinkablesRepository();
             var itemIdentifier = new BarcodeAuthenticator();
 
-            for (int i = 0; i < drinkablesRepository.LoadDrinkablesCSVData().Count; i++)
+            for (int i = 0; i < 4; i++)
             {
                 if (i == index)
                 {
-                    cartList.Add($"{itemIdentifier.ItemIdentifier(drinkablesRepository.LoadDrinkablesCSVData()[index].Barcode)} už {drinkablesRepository.LoadDrinkablesCSVData()[index].Price} Eur");
+                    cartList.Add($"{itemIdentifier.ItemIdentifier(drinkablesRepository.LoadDrinkables_DbData()[index].Barcode)} už {drinkablesRepository.LoadDrinkables_DbData()[index].Price} Eur");
                 }
             }
-            cartTotal += drinkablesRepository.LoadDrinkablesCSVData()[index].Price;
-            moneyOperations.Add(drinkablesRepository.LoadDrinkablesCSVData()[index].Price);
+            cartTotal += drinkablesRepository.LoadDrinkables_DbData()[index].Price;
+            moneyOperations.Add(drinkablesRepository.LoadDrinkables_DbData()[index].Price);
         }
         #endregion
 
